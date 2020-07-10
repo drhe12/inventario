@@ -1,0 +1,61 @@
+<div class="princ">
+
+      <mat-card>
+        <mat-card-title>Nuevo Producto</mat-card-title>
+        <mat-divider></mat-divider>
+        <div
+          fxLayout="row wrap"
+          class="animated fadeIn">
+          <div fxFlex class="div-qr">
+            <mat-card-content>
+
+              <form class="example-form">
+                <mat-form-field class="ex-form">
+                  <mat-label>Nombre del producto:</mat-label>
+                  <input matInput name="qr-nombre" placeholder="Tanque de agua" [(ngModel)]="qrData.nombre">
+                </mat-form-field>
+
+                <mat-form-field class="ex-form">
+                  <mat-label>Marca:</mat-label>
+                  <input matInput name="qr-marca" placeholder="Eternit" [(ngModel)]="qrData.marca">
+                </mat-form-field>
+
+                <mat-form-field class="ex-form">
+                  <mat-label>Stock:</mat-label>
+                  <input matInput name="qr-stock" placeholder="20" [(ngModel)]="qrData.stock">
+                </mat-form-field>
+
+                <mat-form-field class="ex-form">
+                  <mat-label>Precio:</mat-label>
+                  <input matInput name="qr-precio" placeholder="120" [(ngModel)]="qrData.precio">
+                </mat-form-field>
+
+                <mat-card-actions fxLayoutAlign="center">
+                  <button mat-raised-button color="primary" (click)="crearArticulo()">Registar</button>
+                  <button mat-raised-button color="warn" (click)="cancelArticulo()">Cancelar</button>
+                </mat-card-actions>
+              </form>
+
+            </mat-card-content>
+          </div>
+
+          <!-- Para mostrar el código QR del articulo creado -->
+          <div fxFlex class="div-qr">
+            <mat-card-content *ngIf="articuloCreado.nombre">
+              <span fxLayoutAlign="start">Código QR: </span>
+              <qrcode fxLayoutAlign="center" [qrdata]="articuloCreado.nombre" [width]="256"></qrcode>
+              <span fxLayoutAlign="center">{{ articuloCreado.nombre }}</span>
+              <span fxLayoutAlign="center">{{ articuloCreado.marca }}</span>
+              <span fxLayoutAlign="center">{{ articuloCreado.stock }}</span>
+              <span fxLayoutAlign="center">{{ articuloCreado.precio }}</span>
+
+            </mat-card-content>
+          </div>
+        </div>
+
+
+
+
+      </mat-card>
+
+</div>

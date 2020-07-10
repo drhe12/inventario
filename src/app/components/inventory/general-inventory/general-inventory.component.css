@@ -1,0 +1,8 @@
+table {
+  width: 100%;
+}
+
+.div-container {
+  max-height: 450px;
+  overflow: auto;
+}
