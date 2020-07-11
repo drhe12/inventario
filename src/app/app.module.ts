@@ -16,6 +16,8 @@ import { APP_ROUTING } from './app.routes';
 import { firebaseConfig } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+//Storage de Firebase
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 //QR
 import { QRCodeModule } from 'angularx-qrcode';
@@ -65,6 +67,7 @@ import { GeneralInventoryComponent } from './components/inventory/general-invent
     APP_ROUTING,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     QRCodeModule,
     FlexLayoutModule,
     MatSidenavModule,

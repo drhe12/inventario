@@ -6,6 +6,7 @@ export const environment = {
   production: false
 };
 
+//Para localizar nuestro proyecto creado en Firebase
 export const firebaseConfig = {
   apiKey: "AIzaSyCiHI6CvTXgmJBEdkYDMXuRnNRzfymL8SA",
   authDomain: "inventario-qr-bf7ab.firebaseapp.com",

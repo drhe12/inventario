@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
-import { Articulo } from 'src/app/models/articulo.model';
+import { Producto } from 'src/app/models/producto.model';
 
 @Component({
   selector: 'app-general-inventory',
@@ -13,7 +13,7 @@ import { Articulo } from 'src/app/models/articulo.model';
 })
 export class GeneralInventoryComponent implements OnInit, AfterViewInit {
 
-  articulos: Articulo[] = [
+  articulos: Producto[] = [
     { nombre: 'Bolsa de cemento', marca: 'Cemento SOL', stock: 150, imagen: 'arti1.jpg', precio: 35},
     { nombre: 'Cerámica', marca: 'San Lorenzo', stock: 300, imagen: 'arti2.jpg', precio: 25},
     { nombre: 'Caño de agua', marca: '-', stock: 220, imagen: 'arti4.jpg', precio: 15},
@@ -27,7 +27,7 @@ export class GeneralInventoryComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
     'nombre', 'marca', 'stock', 'precio', 'acciones'
   ];
-  dataSource = new MatTableDataSource<Articulo> (this.articulos);
+  dataSource = new MatTableDataSource<Producto> (this.articulos);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;

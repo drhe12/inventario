@@ -2,15 +2,15 @@
 <div
     fxLayout="row wrap"
     class="animated fadeIn">
-  <div fxFlex *ngFor="let arti of articulos">
+  <div fxFlex *ngFor="let producto of productos">
     <mat-card class="product-card">
       <mat-card-header>
-        <mat-card-title>{{ arti.nombre }}</mat-card-title>
-        <mat-card-subtitle>{{ arti.marca }}</mat-card-subtitle>
+        <mat-card-title>{{ producto.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ producto.marca }}</mat-card-subtitle>
       </mat-card-header>
-      <img class="imagee" mat-card-image src="../../../assets/images/{{arti.imagen}}" alt="cemento">
+      <img class="imagee" mat-card-image [src]="producto.qr" alt="cemento">
       <mat-card-content>
-        <p>Precio: S/. {{ arti.precio }}</p>
+        <p>Precio: S/. {{ producto.precio }}</p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button>Ver Producto</button>
