@@ -31,8 +31,8 @@
                 </mat-form-field>
 
                 <mat-card-actions fxLayoutAlign="center">
-                  <button mat-raised-button color="primary" (click)="crearArticulo()">Registar</button>
-                  <button mat-raised-button color="warn" (click)="cancelArticulo()">Cancelar</button>
+                  <button mat-raised-button color="primary" (click)="registrarDatos()">Registar</button>
+                  <button mat-raised-button color="warn" (click)="Limpiar()">Limpiar</button>
                 </mat-card-actions>
               </form>
 
@@ -49,7 +49,7 @@
               <span fxLayoutAlign="center">{{ articuloCreado.marca }}</span>
               <span fxLayoutAlign="center">{{ articuloCreado.stock }}</span>
               <span fxLayoutAlign="center">{{ articuloCreado.precio }}</span>
-              <button mat-raised-button color="primary" (click)="guardarQR()">Guardar QR</button>
+              <button mat-raised-button color="primary" (click)="guardarProducto()">Guardar QR</button>
             </mat-card-content>
 
           </div>

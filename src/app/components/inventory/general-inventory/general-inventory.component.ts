@@ -4,43 +4,44 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
-import { Producto } from 'src/app/models/producto.model';
+import { Producto } from 'src/app/models/producto';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-general-inventory',
   templateUrl: './general-inventory.component.html',
   styleUrls: ['./general-inventory.component.css']
 })
+
 export class GeneralInventoryComponent implements OnInit, AfterViewInit {
 
-  articulos: Producto[] = [
-    { nombre: 'Bolsa de cemento', marca: 'Cemento SOL', stock: 150, imagen: 'arti1.jpg', precio: 35},
-    { nombre: 'Cerámica', marca: 'San Lorenzo', stock: 300, imagen: 'arti2.jpg', precio: 25},
-    { nombre: 'Caño de agua', marca: '-', stock: 220, imagen: 'arti4.jpg', precio: 15},
-    { nombre: 'Tanque de agua', marca: 'Rotoplas', stock: 12, imagen: 'arti5.jpg', precio: 150},
-    { nombre: 'Lavabo', marca: '-', stock: 70, imagen: 'arti6.jpg', precio: 83},
-    { nombre: 'Chapa de puerta', marca: 'Fortel', stock: 130, imagen: 'arti7.jpg', precio: 28}
-  ];
-
-  position = 0;
+  productos: any = [];
 
   displayedColumns: string[] = [
     'nombre', 'marca', 'stock', 'precio', 'acciones'
   ];
-  dataSource = new MatTableDataSource<Producto> (this.articulos);
+  dataSource = new MatTableDataSource();
+
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() { }
+  constructor( private productService: ProductsService ) { }
 
   ngOnInit(): void {
+    //Llamamos a nuestra bd
+    this.productService.getProductos().subscribe( productos => {
+      //le asignamos los productos a nuestra tabla
+      this.dataSource.data = productos;
 
+      this.productos = productos;
+      console.log(this.productos);
+    })
   }
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
   }
 
 
