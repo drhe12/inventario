@@ -23,7 +23,11 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Inventario-QR</span>
+
+      <!-- Chequear presentación -->
+      <a mat-button [routerLink]="['home']">
+        <span>Inventario-QR</span>
+      </a>
 
       <span class="spacer"></span>
       <a mat-button>Cerrar Sesión</a>

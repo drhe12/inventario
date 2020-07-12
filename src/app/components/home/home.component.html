@@ -1,1 +1,25 @@
 <p>home works!</p>
+<div>
+  <button mat-raised-button color="primary" *ngIf="!scanActivado" (click)="iniciarScan()">
+    Iniciar Scan
+  </button>
+
+  <video #video [hidden]="!scanActivado" width="50%"></video>
+  <button mat-raised-button color="accent" (click)="detenerScan()" *ngIf="scanActivado">
+    Detener Scan
+  </button>
+
+  <mat-card *ngIf="resultadoScan">
+    <mat-card-header>
+      <mat-card-title>Resultado QR:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{ resultadoScan }}
+    </mat-card-content>
+
+    <button mat-raised-button color="warn" (click)="resetear()" *ngIf="resultadoScan">
+      Resetear Scan
+    </button>
+  </mat-card>
+
+</div>
