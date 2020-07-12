@@ -5,6 +5,7 @@
   </button>
 
   <video #video [hidden]="!scanActivado" width="50%"></video>
+  <canvas #canvas hidden></canvas>
   <button mat-raised-button color="accent" (click)="detenerScan()" *ngIf="scanActivado">
     Detener Scan
   </button>
