@@ -1,6 +1,6 @@
 <p>home works!</p>
 <div>
-  <button mat-raised-button color="primary" *ngIf="!scanActivado" (click)="iniciarScan()">
+  <button mat-raised-button color="primary" *ngIf="!scanActivado && !resultadoScan" (click)="iniciarScan()">
     Iniciar Scan
   </button>
 

@@ -73,7 +73,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       console.log('QR: ', codigoQR);
 
       if ( codigoQR ) {
-
+        //Una vez que lee el QR
+        this.detenerScan();
+        this.resultadoScan = codigoQR.data;
       } else if ( this.scanActivado ) {
       requestAnimationFrame(this.scanear.bind(this));
       }
@@ -91,6 +93,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   resetear() {
-
+    this.resultadoScan = null;
+    this.iniciarScan();
   }
 }
