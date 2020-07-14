@@ -9,25 +9,24 @@ import { Producto } from 'src/app/models/producto';
 })
 export class NewProductComponent implements OnInit {
 
-  qrData: Producto = {
-    nombre: null,
-    marca: null,
-    stock: null,
-    precio: null,
-    qr: null,
-  };
+  // qrData: Producto = {
+  //   nombre: null,
+  //   marca: null,
+  //   stock: null,
+  //   precio: null,
+  // };
 
   articuloCreado: Producto = {
     nombre: null,
     marca: null,
     stock: null,
-    precio: null,
     qr: null,
+    precio: null
   };
 
   //elementType: 'url' | 'img' | 'canvas' = 'canvas';
 
-  qrr = '';
+  qr = null;
 
   constructor( private productService: ProductsService ) { }
 
@@ -35,26 +34,32 @@ export class NewProductComponent implements OnInit {
   }
 
   registrarDatos() {
-    this.articuloCreado.nombre = this.qrData.nombre;
-    this.articuloCreado.marca = this.qrData.marca;
-    this.articuloCreado.stock = this.qrData.stock;
-    this.articuloCreado.precio = this.qrData.precio;
+    //Creamos al producto para obtener su id
 
-    console.log(this.qrData);
+    // this.qrData.nombre = this.articuloCreado.nombre;
+    // this.qrData.marca = this.articuloCreado.marca;
+    // this.qrData.stock = this.articuloCreado.stock;
+    // this.qrData.precio = this.articuloCreado.precio;
+
+    this.qr = 'http://localhost:4200/#/products';
+
+    //console.log(this.id);
+    //console.log(this.qrData);
     console.log(this.articuloCreado);
 
   }
 
   Limpiar() {
-    this.qrData.nombre = '';
-    this.qrData.marca = '';
-    this.qrData.stock = null;
-    this.qrData.precio = null;
+    this.articuloCreado.nombre = '';
+    this.articuloCreado.marca = '';
+    this.articuloCreado.stock = null;
+    this.articuloCreado.precio = null;
 
-    this.articuloCreado.nombre = this.qrData.nombre;
-    this.articuloCreado.marca = this.qrData.marca;
-    this.articuloCreado.stock = this.qrData.stock;
-    this.articuloCreado.precio = this.qrData.precio;
+    this.qr = null;
+    // this.articuloCreado.nombre = this.qrData.nombre;
+    // this.articuloCreado.marca = this.qrData.marca;
+    // this.articuloCreado.stock = this.qrData.stock;
+    // this.articuloCreado.precio = this.qrData.precio;
   }
 
   guardarProducto() {
@@ -69,6 +74,7 @@ export class NewProductComponent implements OnInit {
 
     this.articuloCreado.qr = imagenURL;
 
+    //Creamos el producto y guardamos en Firebase
     this.productService.crearProducto(
       this.articuloCreado.nombre,
       this.articuloCreado.marca,
@@ -77,6 +83,7 @@ export class NewProductComponent implements OnInit {
       this.articuloCreado.qr );
 
     console.log( this.articuloCreado );
+    this.qr = null;
     //No es muy necesario
     //Dividir el URL del QR que se genera
     // let data = imagenURL.split(',')[1];

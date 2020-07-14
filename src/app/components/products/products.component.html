@@ -8,12 +8,12 @@
         <mat-card-title>{{ producto.nombre }}</mat-card-title>
         <mat-card-subtitle>{{ producto.marca }}</mat-card-subtitle>
       </mat-card-header>
-      <img class="imagee" mat-card-image [src]="producto.qr" alt="cemento">
+      <img class="imagee" mat-card-image [src]="producto.qr" [alt]="producto.nombre">
       <mat-card-content>
         <p>Precio: S/. {{ producto.precio }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>Ver Producto</button>
+        <button mat-button (click)="verProducto(producto.nombre)">Ver Producto</button>
       </mat-card-actions>
     </mat-card>
   </div>

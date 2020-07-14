@@ -15,7 +15,7 @@
       <mat-card-title>Resultado QR:</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      {{ resultadoScan }}
+      <a [routerLink]="['/products']">{{ resultadoScan }}</a>
     </mat-card-content>
 
     <button mat-raised-button color="warn" (click)="resetear()" *ngIf="resultadoScan">

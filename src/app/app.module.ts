@@ -47,6 +47,7 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { HelpComponent } from './components/help/help.component';
 import { NewProductComponent } from './components/inventory/new-product/new-product.component';
 import { GeneralInventoryComponent } from './components/inventory/general-inventory/general-inventory.component';
+import { ProductComponent } from './components/products/product/product.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { GeneralInventoryComponent } from './components/inventory/general-invent
     ReportsComponent,
     HelpComponent,
     NewProductComponent,
-    GeneralInventoryComponent
+    GeneralInventoryComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
