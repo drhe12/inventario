@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   localstream: any;
   //Para mostrar video
-  //Revisar documentación de ViewChild *static
   @ViewChild('video', { static: false }) video: ElementRef;
   @ViewChild('canvas', { static: true }) canvas: ElementRef;
   elementoVideo: any;

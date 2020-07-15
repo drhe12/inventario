@@ -68,6 +68,8 @@ import { ProductComponent } from './components/products/product/product.componen
     FormsModule,
     APP_ROUTING,
     AngularFireModule.initializeApp(firebaseConfig),
+    //Para que trabaje de manera offline
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     AngularFirestoreModule,
     QRCodeModule,

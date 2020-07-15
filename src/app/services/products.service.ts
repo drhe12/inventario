@@ -9,30 +9,9 @@ import { Producto } from '../models/producto';
 })
 export class ProductsService {
 
-  //nuevoProduId = '';
+  nuevoProduId = null;
 
   constructor( private db: AngularFirestore ) { }
-
-  //Crear un nuevo producto en Firebase
-  crearProducto( nombre: string, marca: string, stock: number, precio: number, qr?: string, imagen?: string ) {
-
-    this.db.collection('productos').add({nombre, marca, stock, precio, qr}).then( nuevoProdu => {
-      //this.nuevoProduId = nuevoProdu.id;
-      console.log('Nuevo producto registrado: ' + nombre + ' ID: ' + nuevoProdu.id);
-    }).catch( error => {
-      console.log('Error: ' + error);
-    });
-    //return nuevoProduId;
-  }
-
-  //Guardar el producto con QR
-  agregarQR( id: string, qr: string ) {
-    this.db.collection('productos').doc(id).update({qr}).then( agregaQR => {
-      console.log('QR agregado: ' + qr + 'ID: ' + id);
-    }).catch( error => {
-      console.log('Error: ' + error);
-    });
-  }
 
   //Para obtener los productos que se encuentran en
   //la colección Productos del Firebase
@@ -44,6 +23,29 @@ export class ProductsService {
         return data;
       })
     }))
+  }
+
+  //Crear un nuevo producto en Firebase
+  crearProducto( nombre: string, marca: string, stock: number, precio: number, qr?: string, imagen?: string ) {
+    this.db.collection('productos').add({nombre, marca, stock, precio}).then( nuevoProdu => {
+      this.nuevoProduId = nuevoProdu.id;
+      console.log('Nuevo producto registrado: ' + nombre + ' ID: ' + nuevoProdu.id);
+    }).catch( error => {
+      console.log('Error: ' + error);
+    });
+  }
+
+  obtenerID() {
+    return this.nuevoProduId;
+  }
+
+  //Guardar el producto con QR
+  agregarQR( id: string, qr: string ) {
+    this.db.collection('productos').doc(id).update({qr}).then( agregaQR => {
+      console.log('QR agregado: ' + qr + 'ID: ' + id);
+    }).catch( error => {
+      console.log('Error: ' + error);
+    });
   }
 
 }

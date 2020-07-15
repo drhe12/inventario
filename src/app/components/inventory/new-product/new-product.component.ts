@@ -9,13 +9,6 @@ import { Producto } from 'src/app/models/producto';
 })
 export class NewProductComponent implements OnInit {
 
-  // qrData: Producto = {
-  //   nombre: null,
-  //   marca: null,
-  //   stock: null,
-  //   precio: null,
-  // };
-
   articuloCreado: Producto = {
     nombre: null,
     marca: null,
@@ -24,8 +17,7 @@ export class NewProductComponent implements OnInit {
     precio: null
   };
 
-  //elementType: 'url' | 'img' | 'canvas' = 'canvas';
-
+  id = null;
   qr = null;
 
   constructor( private productService: ProductsService ) { }
@@ -35,31 +27,29 @@ export class NewProductComponent implements OnInit {
 
   registrarDatos() {
     //Creamos al producto para obtener su id
+    this.productService.crearProducto(
+      this.articuloCreado.nombre,
+      this.articuloCreado.marca,
+      this.articuloCreado.stock,
+      this.articuloCreado.precio );
 
-    // this.qrData.nombre = this.articuloCreado.nombre;
-    // this.qrData.marca = this.articuloCreado.marca;
-    // this.qrData.stock = this.articuloCreado.stock;
-    // this.qrData.precio = this.articuloCreado.precio;
-
-    this.qr = 'http://localhost:4200/#/products';
-
-    //console.log(this.id);
-    //console.log(this.qrData);
     console.log(this.articuloCreado);
-
   }
 
-  Limpiar() {
+  limpiar() {
     this.articuloCreado.nombre = '';
     this.articuloCreado.marca = '';
     this.articuloCreado.stock = null;
     this.articuloCreado.precio = null;
 
     this.qr = null;
-    // this.articuloCreado.nombre = this.qrData.nombre;
-    // this.articuloCreado.marca = this.qrData.marca;
-    // this.articuloCreado.stock = this.qrData.stock;
-    // this.articuloCreado.precio = this.qrData.precio;
+    this.id = null;
+  }
+
+  generarQR() {
+    this.id = this.productService.obtenerID();
+    //La cadena que se almacena en el QR será el URL con id
+    this.qr = 'http://localhost:4200/#/products/'+this.id;
   }
 
   guardarProducto() {
@@ -71,23 +61,14 @@ export class NewProductComponent implements OnInit {
     //ahora ya tenemos el QR en una URL que podemos almacenar
     //en nuestro producto y guardarlo en la bd
     console.log('URL: ', imagenURL);
-
     this.articuloCreado.qr = imagenURL;
 
-    //Creamos el producto y guardamos en Firebase
-    this.productService.crearProducto(
-      this.articuloCreado.nombre,
-      this.articuloCreado.marca,
-      this.articuloCreado.stock,
-      this.articuloCreado.precio,
+    //agregamos el QR a nuestro producto
+    this.productService.agregarQR(
+      this.id,
       this.articuloCreado.qr );
 
     console.log( this.articuloCreado );
-    this.qr = null;
-    //No es muy necesario
-    //Dividir el URL del QR que se genera
-    // let data = imagenURL.split(',')[1];
-
-    // console.log(data);
+    this.limpiar();
   }
 }

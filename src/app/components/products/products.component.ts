@@ -12,8 +12,10 @@ export class ProductsComponent implements OnInit {
 
   productos: any[] = [];
 
-  constructor( public productService: ProductsService,
-                public router: Router ) { }
+  constructor(
+              public productService: ProductsService,
+              public router: Router
+            ) { }
 
   ngOnInit(): void {
     //Llamamos a nuestro servicio y usamos el método getProductos
