@@ -13,7 +13,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { APP_ROUTING } from './app.routes';
 
 //Firebase - back
-import { firebaseConfig } from '../environments/environment';
+//import { firebaseConfig, environment } from '../environments/environment';
+//para mandar a producción con ng build --prod, necesita llamar el ambiente.prod
+import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 //Storage de Firebase
@@ -37,6 +39,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
+//Luego de ng add @angular/pwa
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 //Components
 import { MainNavComponent } from './main-nav/main-nav.component';
@@ -67,7 +71,7 @@ import { ProductComponent } from './components/products/product/product.componen
     BrowserAnimationsModule,
     FormsModule,
     APP_ROUTING,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     //Para que trabaje de manera offline
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
@@ -87,7 +91,8 @@ import { ProductComponent } from './components/products/product/product.componen
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
