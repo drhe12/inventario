@@ -4,7 +4,7 @@
     Iniciar Scan
   </button>
 
-  <video #video [hidden]="!scanActivado" width="30%"></video>
+  <video #video [hidden]="!scanActivado" width="50%"></video>
   <canvas #canvas hidden></canvas>
   <button mat-raised-button color="accent" (click)="detenerScan()" *ngIf="scanActivado">
     Detener Scan
@@ -15,7 +15,7 @@
       <mat-card-title>Resultado QR:</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <a [routerLink]="['/productos',resultadoScan]">{{ resultadoScan }}</a>
+      <a [href]="resultadoScan">{{ resultadoScan }}</a>
     </mat-card-content>
 
     <button mat-raised-button color="warn" (click)="resetear()" *ngIf="resultadoScan">

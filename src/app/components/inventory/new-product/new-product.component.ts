@@ -49,7 +49,7 @@ export class NewProductComponent implements OnInit {
   generarQR() {
     this.id = this.productService.obtenerID();
     //La cadena que se almacena en el QR será el URL con id
-    this.qr = 'http://localhost:4200/#/products/'+this.id;
+    this.qr = 'https://inventario-qr-bf7ab.web.app/#/productos/'+this.id;
   }
 
   guardarProducto() {

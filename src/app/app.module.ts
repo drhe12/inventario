@@ -39,10 +39,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
-//Luego de ng add @angular/pwa
+//Luego de ng add @angular/pwa se importa el ServiceWorker
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 //Components
+
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';

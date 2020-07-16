@@ -46,10 +46,6 @@
             <mat-card-content *ngIf="qr">
               <span fxLayoutAlign="start">Código QR: </span>
               <qrcode name="qrr" fxLayoutAlign="center" [qrdata]="qr" [width]="256"></qrcode>
-              <!-- <span fxLayoutAlign="center">{{ qrData.nombre }}</span>
-              <span fxLayoutAlign="center">{{ qrData.marca }}</span>
-              <span fxLayoutAlign="center">{{ qrData.stock }}</span>
-              <span fxLayoutAlign="center">{{ qrData.precio }}</span> -->
               <button mat-raised-button color="primary" (click)="guardarProducto()">Guardar QR</button>
             </mat-card-content>
 
