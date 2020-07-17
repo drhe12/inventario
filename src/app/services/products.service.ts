@@ -14,7 +14,7 @@ export class ProductsService {
   constructor( private db: AngularFirestore ) { }
 
   //Para obtener los productos que se encuentran en
-  //la colección Productos del Firebase
+  //la colección productos del Firebase
   getProductos() {
     return this.db.collection('productos').snapshotChanges().pipe(map (productos => {
       return productos.map(producto => {
@@ -23,6 +23,11 @@ export class ProductsService {
         return data;
       })
     }))
+  }
+
+  //Obtener un producto
+  getProducto( producto_id: string ) {
+    return this.db.collection('productos').doc(producto_id).valueChanges();
   }
 
   //Crear un nuevo producto en Firebase
@@ -46,6 +51,11 @@ export class ProductsService {
     }).catch( error => {
       console.log('Error: ' + error);
     });
+  }
+
+  //Eliminar producto
+  eliminarProducto( producto_id: string ) {
+    return this.db.collection('productos').doc(producto_id).delete();
   }
 
 }

@@ -18,7 +18,7 @@ export class GeneralInventoryComponent implements OnInit, AfterViewInit {
   productos: any = [];
 
   displayedColumns: string[] = [
-    'nombre', 'marca', 'stock', 'precio', 'acciones'
+    'nombre', 'marca', 'stock', 'acciones'
   ];
   dataSource = new MatTableDataSource();
 
@@ -44,6 +44,9 @@ export class GeneralInventoryComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator = this.paginator;
   }
 
+  eliminar( id: string ) {
+    this.productService.eliminarProducto(id);
+  }
 
 
 }

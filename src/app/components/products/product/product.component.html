@@ -1,1 +1,32 @@
-<p>product works!</p>
+<div class="main-div">
+  <div
+      fxLayout="row wrap"
+      class="animated fadeIn">
+    <div fxFlex>
+      <mat-card class="producto-card">
+        <mat-card-header>
+          <mat-card-title>{{ producto.nombre }}</mat-card-title>
+          <mat-card-subtitle>{{ producto.marca }}</mat-card-subtitle>
+        </mat-card-header>
+        <img class="imagen" mat-card-image [src]="producto.qr" [alt]="producto.nombre">
+        <mat-card-content>
+          <p>Precio: S/. {{ producto.precio }}</p>
+          <p>Stock: {{ producto.stock }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="iniciarKardex(producto.id)">Kardex</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div fxFlex>
+      <mat-card>
+        <mat-card-content>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+
+  </div>

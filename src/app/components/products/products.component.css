@@ -1,16 +1,16 @@
-.product-card {
+.producto-card {
   min-width: 300px;
   max-width: 360px;
   margin: 5px;
 }
 
-.div-main {
+.main-div {
   width: 90%;
   margin: 0 auto;
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-.imagee {
+.imagen {
   max-height: 350px;
 }
