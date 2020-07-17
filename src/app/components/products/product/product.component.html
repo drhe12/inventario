@@ -2,8 +2,8 @@
   <div
       fxLayout="row wrap"
       class="animated fadeIn">
-    <div fxFlex>
-      <mat-card class="producto-card">
+    <div fxFlex="20">
+      <mat-card>
         <mat-card-header>
           <mat-card-title>{{ producto.nombre }}</mat-card-title>
           <mat-card-subtitle>{{ producto.marca }}</mat-card-subtitle>
@@ -19,9 +19,57 @@
       </mat-card>
     </div>
 
-    <div fxFlex>
+    <div *ngIf="kardex" fxFlex>
       <mat-card>
         <mat-card-content>
+
+          <div class="div-container mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+
+              <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef> FECHA </th>
+                <td mat-cell *matCellDef="let regKardex"> {{regKardex.fecha}} </td>
+              </ng-container>
+              <ng-container matColumnDef="detalle">
+                <th mat-header-cell *matHeaderCellDef> DETALLE </th>
+                <td mat-cell *matCellDef="let regKardex"> {{regKardex.detalle}} </td>
+              </ng-container>
+              <ng-container matColumnDef="valor_unit">
+                <th mat-header-cell *matHeaderCellDef> VALOR UNIT. </th>
+                <td mat-cell *matCellDef="let regKardex"> S/. {{regKardex.valor_unit}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="cant_e">
+                <th mat-header-cell *matHeaderCellDef> CANT. ENTRADA </th>
+                <td mat-cell *matCellDef="let regKardex"> {{regKardex.cant_e}} </td>
+              </ng-container>
+              <ng-container matColumnDef="total_e">
+                <th mat-header-cell *matHeaderCellDef> TOTAL </th>
+                <td mat-cell *matCellDef="let regKardex"> {{regKardex.total_e}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="cant_s">
+                <th mat-header-cell *matHeaderCellDef> CANT. SALIDA </th>
+                <td mat-cell *matCellDef="let regKardex"> {{regKardex.cant_s}} </td>
+              </ng-container>
+              <ng-container matColumnDef="total_s">
+                <th mat-header-cell *matHeaderCellDef> TOTAL </th>
+                <td mat-cell *matCellDef="let regKardex"> {{regKardex.total_s}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="cant_t">
+                <th mat-header-cell *matHeaderCellDef> CANT. SALDO </th>
+                <td mat-cell *matCellDef="let regKardex"> {{regKardex.cant_t}} </td>
+              </ng-container>
+              <ng-container matColumnDef="total_t">
+                <th mat-header-cell *matHeaderCellDef> TOTAL </th>
+                <td mat-cell *matCellDef="let regKardex"> S/. {{regKardex.total_t}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
 
         </mat-card-content>
       </mat-card>
