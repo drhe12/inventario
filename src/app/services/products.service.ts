@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Producto } from '../models/producto';
 import { Kardex } from '../models/kardex';
+import { firestore } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ import { Kardex } from '../models/kardex';
 export class ProductsService {
 
   nuevoProduId = null;
+
+  nuevoKardex: any[];
 
   constructor( private db: AngularFirestore ) { }
 
@@ -65,14 +68,19 @@ export class ProductsService {
   }
 
   //Leer kardex
-  getKardex( producto_id: string ) {
+  /*getKardex( producto_id: string ) {
     return this.db.collection('productos').doc(producto_id)
-                  .collection('kardex').snapshotChanges().pipe(map (kardex => {
-                    return kardex.map(kardex => {
-                      const data = kardex.payload.doc.data() as Kardex;
-                      data.id = kardex.payload.doc.id;
-                      return data;
-                    });
-                  }));
+            .collection('kardex').snapshotChanges().pipe(map (kardex => {
+              return kardex.map(kardex => {
+                const data = kardex.payload.doc.data() as Kardex;
+                data.id = kardex.payload.doc.id;
+                return data;
+              });
+            }));
+  }*/
+  setKardex( id: string, karde: Kardex ) {
+    this.db.collection('productos').doc(id).update({
+      kardex: firestore.FieldValue.arrayUnion(karde),
+    });
   }
 }
