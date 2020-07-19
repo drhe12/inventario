@@ -12,10 +12,11 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ProductComponent implements OnInit {
 
   producto: any = [];
+  karde: any = [];
   kardex = false;
-  regKardex: Kardex[] = [
-    { fecha: new Date(), detalle: 'stock inicial', valor_unit: 10, cant_e: 150, total_e: 1500, cant_s: 0, total_s: 0, cant_t: 100, total_t: 1500}
-  ]
+  regKardex: any = [];//Kardex[] = [
+    //{ fecha: new Date(), detalle: 'stock inicial', valor_unit: 10, cant_e: 150, total_e: 1500, cant_s: 0, total_s: 0, cant_t: 150, total_t: 1500}
+  //];
 
   displayedColumns: string[] = [
     'fecha', 'detalle', 'valor_unit', 'cant_e', 'total_e',
@@ -33,15 +34,19 @@ export class ProductComponent implements OnInit {
       this.productService.getProducto( params['id'] ).subscribe( product => {
         this.producto = product;
         //this.dataSource.data = this.producto;
-      })
+      });
+      //para el kardex
+      this.productService.getKardex( params['id'] ).subscribe( kardex => {
+        this.regKardex = kardex;
+        this.dataSource.data = kardex;
+        console.log('Kardex: '+this.regKardex);
+      });
     });
-    this.dataSource.data = this.regKardex;
 
   }
 
   iniciarKardex( id: string ) {
     console.log('Iniciar Kardex');
     this.kardex = true;
-
   }
 }

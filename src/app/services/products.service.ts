@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Producto } from '../models/producto';
+import { Kardex } from '../models/kardex';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,8 @@ export class ProductsService {
         const data = producto.payload.doc.data() as Producto;
         data.id = producto.payload.doc.id;
         return data;
-      })
-    }))
+      });
+    }));
   }
 
   //Obtener un producto
@@ -58,4 +59,20 @@ export class ProductsService {
     return this.db.collection('productos').doc(producto_id).delete();
   }
 
+  //Editar producto
+  editarProducto() {
+
+  }
+
+  //Leer kardex
+  getKardex( producto_id: string ) {
+    return this.db.collection('productos').doc(producto_id)
+                  .collection('kardex').snapshotChanges().pipe(map (kardex => {
+                    return kardex.map(kardex => {
+                      const data = kardex.payload.doc.data() as Kardex;
+                      data.id = kardex.payload.doc.id;
+                      return data;
+                    });
+                  }));
+  }
 }

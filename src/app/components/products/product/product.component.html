@@ -21,6 +21,7 @@
 
     <div *ngIf="kardex" fxFlex>
       <mat-card>
+        <mat-card-title>Kardex: {{ producto.nombre }}</mat-card-title>
         <mat-card-content>
 
           <div class="div-container mat-elevation-z8">
@@ -28,7 +29,7 @@
 
               <ng-container matColumnDef="fecha">
                 <th mat-header-cell *matHeaderCellDef> FECHA </th>
-                <td mat-cell *matCellDef="let regKardex"> {{regKardex.fecha}} </td>
+                <td mat-cell *matCellDef="let regKardex"> {{regKardex.fecha | date}} </td>
               </ng-container>
               <ng-container matColumnDef="detalle">
                 <th mat-header-cell *matHeaderCellDef> DETALLE </th>
