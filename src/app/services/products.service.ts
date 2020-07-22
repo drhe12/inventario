@@ -12,13 +12,11 @@ import { firestore } from 'firebase';
 export class ProductsService {
 
   nuevoProduId = null;
-
+  kardex: any[] = [];
   nuevoKardex: Kardex = {
     fecha: new Date(),
     detalle: 'stock inicial',
     valor_unit: 0,
-    cant_e: 0,
-    total_e: 0,
     cant_t: 0,
     total_t: 0
   };
@@ -44,7 +42,13 @@ export class ProductsService {
 
   //Crear un nuevo producto en Firebase
   crearProducto( nombre: string, marca: string, stock: number, precio: number, qr?: string, imagen?: string ) {
-    this.db.collection('productos').add({nombre, marca, stock, precio}).then( nuevoProdu => {
+    this.nuevoKardex.valor_unit = +precio;
+    this.nuevoKardex.cant_e = +stock;
+    this.nuevoKardex.total_e = precio * stock;
+    this.nuevoKardex.cant_t = +stock;
+    this.nuevoKardex.total_t = precio * stock;
+    this.kardex.push(this.nuevoKardex);
+    this.db.collection('productos').add({nombre, marca, stock, precio, kardex: this.kardex}).then( nuevoProdu => {
       this.nuevoProduId = nuevoProdu.id;
       console.log('Nuevo producto registrado: ' + nombre + ' ID: ' + nuevoProdu.id);
     }).catch( error => {

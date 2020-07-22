@@ -1,5 +1,5 @@
 export interface Kardex {
-  id?: string;
+  //id?: string;
   fecha: Date;
   detalle: string;
   valor_unit: number;
