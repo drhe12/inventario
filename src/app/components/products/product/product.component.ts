@@ -13,16 +13,14 @@ export class ProductComponent implements OnInit {
 
   producto: any = [];
   kardex = false;
+  registrar = null;
+  cantidadRegistrada: number;
   id_producto: string;
   regKardex: any = [];
   nuevoKardex: Kardex = {
     fecha: new Date(),
     detalle: '',
     valor_unit: null,
-    cant_e: null,
-    total_e: null,
-    cant_s: null,
-    total_s: null,
     cant_t: null,
     total_t: null
   };
@@ -45,7 +43,6 @@ export class ProductComponent implements OnInit {
         this.producto = product;
         this.regKardex = this.producto.kardex;
         this.dataSource.data = this.regKardex;
-        //console.log(this.regKardex);
       });
       //para el kardex
       /*this.productService.getKardex( params['id'] ).subscribe( kardex => {
@@ -56,26 +53,23 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  iniciarKardex() {
-    console.log('Iniciar Kardex');
-    this.kardex = true;
-  }
-
   registrarKardex() {
     this.nuevoKardex.valor_unit = this.producto.precio;
-    this.nuevoKardex.total_s = this.nuevoKardex.valor_unit * this.nuevoKardex.cant_s;
-    this.nuevoKardex.cant_t = this.producto.stock - this.nuevoKardex.cant_s;
+    if ( this.registrar === 'entrada' ) {
+      this.nuevoKardex.cant_e = +this.cantidadRegistrada;
+      this.nuevoKardex.total_e = this.nuevoKardex.valor_unit * this.nuevoKardex.cant_e;
+      this.nuevoKardex.cant_t = this.producto.stock + this.nuevoKardex.cant_e;
+    } else {
+      this.nuevoKardex.cant_s = this.cantidadRegistrada;
+      this.nuevoKardex.total_s = this.nuevoKardex.valor_unit * this.nuevoKardex.cant_s;
+      this.nuevoKardex.cant_t = this.producto.stock - this.nuevoKardex.cant_s;
+    }
     this.nuevoKardex.total_t = this.nuevoKardex.cant_t * this.nuevoKardex.valor_unit;
-    this.nuevoKardex.cant_e = 0;
-    this.nuevoKardex.total_e = 0;
-    console.log(this.id_producto);
-    this.productService.setKardex(this.id_producto, this.nuevoKardex);
 
-    console.log('Fecha: ' + this.nuevoKardex.fecha);
-    console.log('Detalle: ' + this.nuevoKardex.detalle);
-    console.log('Cantidad Sal. ' + this.nuevoKardex.cant_s);
-    console.log('Total Sal. ' + this.nuevoKardex.total_s);
-    console.log('Cantidad Tot. ' + this.nuevoKardex.cant_t);
-    console.log('Total Tot. ' + this.nuevoKardex.total_t);
+    console.log(this.id_producto);
+    this.productService.agregarKardex(this.id_producto, this.nuevoKardex);
+    this.productService.editarStock(this.id_producto, this.nuevoKardex.cant_t);
+    this.registrar = null;
+    this.kardex = false;
   }
 }

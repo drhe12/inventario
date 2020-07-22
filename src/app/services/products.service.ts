@@ -13,7 +13,15 @@ export class ProductsService {
 
   nuevoProduId = null;
 
-  nuevoKardex: any[];
+  nuevoKardex: Kardex = {
+    fecha: new Date(),
+    detalle: 'stock inicial',
+    valor_unit: 0,
+    cant_e: 0,
+    total_e: 0,
+    cant_t: 0,
+    total_t: 0
+  };
 
   constructor( private db: AngularFirestore ) { }
 
@@ -62,9 +70,13 @@ export class ProductsService {
     return this.db.collection('productos').doc(producto_id).delete();
   }
 
-  //Editar producto
-  editarProducto() {
-
+  //Editar stock producto
+  editarStock( id: string, nuevoStock: number ) {
+    this.db.collection('productos').doc(id).update({ stock: nuevoStock }).then( () => {
+      console.log('Stock actualizado: ' + nuevoStock);
+    }).catch( error => {
+      console.log('Error: ' + error);
+    });
   }
 
   //Leer kardex
@@ -78,7 +90,9 @@ export class ProductsService {
               });
             }));
   }*/
-  setKardex( id: string, karde: Kardex ) {
+
+
+  agregarKardex( id: string, karde: Kardex ) {
     this.db.collection('productos').doc(id).update({
       kardex: firestore.FieldValue.arrayUnion(karde),
     });

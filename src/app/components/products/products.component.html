@@ -1,4 +1,4 @@
-<div class="main-div">
+<div class="main-div" fxFlexAlign="center center">
 <div
     fxLayout="row wrap"
     class="animated fadeIn">
@@ -10,7 +10,7 @@
       </mat-card-header>
       <img class="imagen" mat-card-image [src]="producto.qr" [alt]="producto.nombre">
       <mat-card-content>
-        <p>Precio: S/. {{ producto.precio }}</p>
+        <p>Precio: {{ producto.precio | currency:'S/.' }}</p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button color="primary" (click)="verProducto(producto.id)">Ver Producto</button>

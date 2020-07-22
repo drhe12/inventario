@@ -1,6 +1,6 @@
 .producto-card {
-  min-width: 300px;
-  max-width: 360px;
+  min-width: 180px;
+  max-width: 220px;
   margin: 5px;
 }
 
@@ -12,5 +12,6 @@
 }
 
 .imagen {
-  max-height: 350px;
+  max-height: 250px;
+  max-width: 250px;
 }

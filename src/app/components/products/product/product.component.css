@@ -1,8 +1,8 @@
-/* .producto-card {
-  min-width: 300px;
+.producto-card {
+  min-width: 100px;
   max-width: 360px;
   margin: 5px;
-} */
+}
 
 .main-div {
   width: 98%;
@@ -15,12 +15,41 @@
   max-height: 350px;
 }
 
+
+/* .div-container {
+  height: 400px;
+  width: 320px;
+  overflow: auto;
+}
+
+table {
+  width: 250px;
+}
+
+/* td.mat-column-star {
+  width: 10px;
+  padding-right: 8px;
+}
+
+th.mat-column-position, td.mat-column-position {
+  padding-left: 8px;
+} */
+
+/*.mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky:last-child {
+  border-left: 1px solid #e0e0e0;
+} */
+
 table {
   width: 100%;
 }
 
 .div-container {
   max-height: auto;
-  width: auto;
+  max-width: 900px;
+  min-width: 250px;
   overflow: auto;
 }
