@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 //Para llamar a la base de datos de Cloud Firestore
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
-import { Producto } from '../models/producto';
-import { Kardex } from '../models/kardex';
+import { Producto } from '../interface/producto';
+import { Kardex } from '../interface/kardex';
 import { firestore } from 'firebase';
 
 @Injectable({
