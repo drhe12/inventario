@@ -1,6 +1,6 @@
 import { Kardex } from './kardex';
 
-export interface Producto {
+export class Producto {
   id?: string;
   nombre: string;
   marca: string;

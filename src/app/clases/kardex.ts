@@ -1,4 +1,4 @@
-export interface Kardex {
+export class Kardex {
   fecha: Date;
   detalle: string;
   valor_unit: number;

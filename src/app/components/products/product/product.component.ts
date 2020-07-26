@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
-import { Kardex } from 'src/app/interface/kardex';
+import { Kardex } from 'src/app/clases/kardex';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({

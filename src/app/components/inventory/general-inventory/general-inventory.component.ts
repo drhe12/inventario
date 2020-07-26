@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
-import { Producto } from 'src/app/interface/producto';
+import { Producto } from 'src/app/clases/producto';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
