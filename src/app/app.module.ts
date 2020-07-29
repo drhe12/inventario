@@ -53,6 +53,7 @@ import { HelpComponent } from './components/help/help.component';
 import { NewProductComponent } from './components/inventory/new-product/new-product.component';
 import { GeneralInventoryComponent } from './components/inventory/general-inventory/general-inventory.component';
 import { ProductComponent } from './components/products/product/product.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { ProductComponent } from './components/products/product/product.componen
     HelpComponent,
     NewProductComponent,
     GeneralInventoryComponent,
-    ProductComponent
+    ProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
