@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <title>Inicio</title>
 </head>
 <body>
-  <h1>Iniciar Sesión</h1>
-  <form>
-    <input type="text" placeholder="Email">
-    <input type="password" placeholder="Contraseña">
-    <button>Iniciar Sesión</button>
+  <form class="formulario animated fadeIn">
+    <h1 class="form-titulo">Iniciar Sesión</h1>
+    <div class="contenedor">
+      <div class="input-contenedor">
+        <i class="fas fa-envelope icon"></i>
+        <input type="text" required placeholder="Correo electrónico">
+      </div>
+      <div class="input-contenedor">
+        <i class="fas fa-lock icon"></i>
+        <input type="password" required placeholder="Contraseña">
+      </div>
+      <button type="submit">Ingresar</button>
+    </div>
   </form>
 </body>
 </html>

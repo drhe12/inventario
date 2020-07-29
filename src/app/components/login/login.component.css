@@ -1,0 +1,90 @@
+body, html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #448b5c;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor {
+  width: 100%;
+  padding: 15px;
+}
+
+.formulario {
+  background: #2e312e;
+  border-radius: 20px 0px;
+  padding: 3px;
+}
+
+.form-titulo {
+  color: beige;
+  text-align: center;
+  font-size: 40px;
+}
+
+input[type="text"],
+input[type="password"] {
+  font-size: 20px;
+  width: 80%;
+  padding: 10px;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.input-contenedor {
+  margin-bottom: 15px;
+  border: 2px solid #40794e;
+  border-radius: 10px;
+}
+
+.input-contenedor:hover {
+  margin-bottom: 15px;
+  border: 2px solid #dbe7dd;
+  border-radius: 10px;
+}
+
+.icon {
+  min-width: 50px;
+  text-align: center;
+  color: #999;
+}
+
+button {
+  border: none;
+  width: 100%;
+  color: white;
+  font-size: 20px;
+  background: #40794e;
+  padding: 15px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #355f40;
+}
+
+p {
+  text-align: center;
+}
+
+@media(min-width: 650px) {
+  .formulario {
+    margin: auto;
+    width: 500px;
+    border-radius: 20px 0px;
+  }
+}

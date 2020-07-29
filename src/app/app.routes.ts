@@ -6,8 +6,10 @@ import { ProductsComponent } from './components/products/products.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { HelpComponent } from './components/help/help.component';
 import { ProductComponent } from './components/products/product/product.component';
+import { LoginComponent } from './components/login/login.component';
 
 const APP_ROUTES: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'inventario', component: InventoryComponent },
   { path: 'productos', component: ProductsComponent },
