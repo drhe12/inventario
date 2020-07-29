@@ -38,6 +38,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
 
 //Luego de ng add @angular/pwa se importa el ServiceWorker
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -95,6 +96,7 @@ import { LoginComponent } from './components/login/login.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

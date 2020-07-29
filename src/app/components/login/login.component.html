@@ -12,13 +12,13 @@
     <div class="contenedor">
       <div class="input-contenedor">
         <i class="fas fa-envelope icon"></i>
-        <input type="text" required placeholder="Correo electrónico">
+        <input [(ngModel)]="email" name="email" type="text" required placeholder="Correo electrónico">
       </div>
       <div class="input-contenedor">
         <i class="fas fa-lock icon"></i>
-        <input type="password" required placeholder="Contraseña">
+        <input [(ngModel)]="pass" name="pass" type="password" required placeholder="Contraseña">
       </div>
-      <button type="submit">Ingresar</button>
+      <button (click)="logueo()">Ingresar</button>
     </div>
   </form>
 </body>

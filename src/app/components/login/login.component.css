@@ -1,5 +1,7 @@
 body, html {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -8,12 +10,13 @@ body, html {
 body {
   margin: 0;
   padding: 0;
-  background: #448b5c;
+  background: #e6ee9c;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  overflow-y: hidden;
 }
 
 .contenedor {
@@ -23,7 +26,7 @@ body {
 
 .formulario {
   background: #2e312e;
-  border-radius: 20px 0px;
+  border-radius: 20px;
   padding: 3px;
 }
 
@@ -36,7 +39,7 @@ body {
 input[type="text"],
 input[type="password"] {
   font-size: 20px;
-  width: 80%;
+  width: 100%;
   padding: 10px;
   background: none;
   border: none;
@@ -85,6 +88,6 @@ p {
   .formulario {
     margin: auto;
     width: 500px;
-    border-radius: 20px 0px;
+    border-radius: 20px;
   }
 }

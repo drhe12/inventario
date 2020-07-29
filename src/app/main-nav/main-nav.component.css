@@ -1,5 +1,6 @@
 .sidenav-container {
   height: 100%;
+  /* background: #e6ee9c; */
 }
 
 .sidenav {
@@ -19,6 +20,7 @@
 .spacer {
   flex: 1 1 auto;
 }
+
 /*
 mat-toolbar a {
   display: inline-block;
