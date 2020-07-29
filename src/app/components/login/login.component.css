@@ -39,11 +39,12 @@ body {
 input[type="text"],
 input[type="password"] {
   font-size: 20px;
-  width: 100%;
+  width: 80%;
   padding: 10px;
   background: none;
   border: none;
   outline: none;
+  text-align: center;
   color: white;
 }
 

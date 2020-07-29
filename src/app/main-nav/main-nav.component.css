@@ -3,8 +3,18 @@
   /* background: #e6ee9c; */
 }
 
+.lista {
+  background: #2e312e;
+}
+
+p {
+  color: white;
+}
+
 .sidenav {
   width: 150px;
+  background: #2e312e;
+
 }
 /*
 .sidenav .mat-nav-list {
