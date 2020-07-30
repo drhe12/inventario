@@ -13,6 +13,8 @@ import { AutenticacionService } from '../services/autenticacion.service';
 })
 export class MainNavComponent implements OnInit{
 
+  logout = true;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -25,6 +27,7 @@ export class MainNavComponent implements OnInit{
 
   ngOnInit():void {
     //this.iniciarSesion();
+    //this.logout = !this.logout;
   }
 
   iniciarSesion() {
@@ -38,5 +41,6 @@ export class MainNavComponent implements OnInit{
 
   cerrarSesion() {
     this.authService.cerrarSesion();
+    this.logout = false;
   }
 }

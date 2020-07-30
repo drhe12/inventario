@@ -45,6 +45,7 @@
 
             <mat-card-content *ngIf="qr">
               <span fxLayoutAlign="start">Código QR: </span>
+              <!-- Se muestra el QR generado, su valor es la URL con el id del producto -->
               <qrcode name="qrr" fxLayoutAlign="center" [qrdata]="qr" [width]="256"></qrcode>
               <button mat-raised-button color="primary" (click)="guardarProducto()">Guardar QR</button>
             </mat-card-content>

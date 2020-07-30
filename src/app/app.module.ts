@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LayoutModule } from '@angular/cdk/layout';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 //Route
@@ -43,8 +42,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 //Luego de ng add @angular/pwa se importa el ServiceWorker
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-//Components
+//Libreria de graficos
+import { ChartsModule } from 'ng2-charts';
 
+//Para la exportacion de tabla
+import { MatTableExporterModule } from 'mat-table-exporter';
+
+//Components
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -82,6 +86,8 @@ import { LoginComponent } from './components/login/login.component';
     AngularFirestoreModule,
     QRCodeModule,
     FlexLayoutModule,
+    ChartsModule,
+    MatTableExporterModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,

@@ -7,10 +7,10 @@
       <mat-icon>business</mat-icon>Menu
     </mat-toolbar>
     <mat-nav-list class="lista">
-      <a mat-list-item [routerLink]="['inventario']"><p color="white">Inventario</p></a>
-      <a mat-list-item [routerLink]="['productos']"><p>Productos</p></a>
-      <a mat-list-item [routerLink]="['reportes']"><p>Reportes</p></a>
-      <a mat-list-item [routerLink]="['ayuda']"><p>Ayuda</p></a>
+      <a mat-list-item [routerLink]="['inventario']"><mat-icon>view_agenda</mat-icon> <p>Inventario</p></a>
+      <a mat-list-item [routerLink]="['productos']"><mat-icon>storefront</mat-icon> <p>Productos</p></a>
+      <a mat-list-item [routerLink]="['reportes']"><mat-icon>analytics</mat-icon> <p>Reportes</p></a>
+      <a mat-list-item [routerLink]="['ayuda']"><mat-icon>help</mat-icon> <p>Ayuda</p></a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -26,11 +26,11 @@
 
       <!-- Chequear presentación -->
       <a mat-button [routerLink]="['home']">
-        <span>Inventario-QR</span>
+        <span class="inventario">Inventario-QR</span>
       </a>
 
       <span class="spacer"></span>
-      <a mat-button (click)="iniciarSesion()">Iniciar Sesión</a>
+      <!-- <a mat-button (click)="iniciarSesion()">Iniciar Sesión</a> -->
       <a mat-button (click)="cerrarSesion()">Cerrar Sesión</a>
 
     </mat-toolbar>
