@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
-import { ExportarService } from 'src/app/services/exportar.service';
+//import { ExportarService } from 'src/app/services/exportar.service';
 import { Kardex } from 'src/app/clases/kardex';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -33,8 +33,8 @@ export class ProductComponent implements OnInit {
   dataSource = new MatTableDataSource();
 
   constructor( private activatedRoute: ActivatedRoute,
-              private productService: ProductsService,
-              private exportarService: ExportarService ) { }
+              private productService: ProductsService/*,
+              private exportarService: ExportarService*/ ) { }
 
   ngOnInit(): void {
     //Para obtener el id del producto que hemos abierto
@@ -80,8 +80,8 @@ export class ProductComponent implements OnInit {
     this.nuevoKardex.detalle = '';
     this.cantidadRegistrada = null;
   }
-
+  /*
   exportarExcel() {
     this.exportarService.exportarExcel(this.dataSource.data, this.producto.nombre);
-  }
+  }*/
 }

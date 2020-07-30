@@ -48,6 +48,9 @@ export class ProductsService {
     this.nuevoKardex.cant_t = +stock;
     this.nuevoKardex.total_t = precio * stock;
     this.kardex.push(this.nuevoKardex);
+    if ( marca === '' || marca === ' ' ) {
+      marca = '-';
+    }
     this.db.collection('productos').add({nombre, marca, stock, precio, kardex: this.kardex}).then( nuevoProdu => {
       this.nuevoProduId = nuevoProdu.id;
       console.log('Nuevo producto registrado: ' + nombre + ' ID: ' + nuevoProdu.id);

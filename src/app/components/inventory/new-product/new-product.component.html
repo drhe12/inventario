@@ -9,29 +9,29 @@
           <div fxFlex class="div-qr">
             <mat-card-content>
 
-              <form class="example-form">
+              <form class="example-form" [formGroup]="registroForm">
                 <mat-form-field class="ex-form">
                   <mat-label>Nombre del producto:</mat-label>
-                  <input matInput name="qr-nombre" placeholder="Tanque de agua" [(ngModel)]="articuloCreado.nombre">
+                  <input matInput name="qr-nombre" formControlName="nombre" required placeholder="Tanque de agua">
                 </mat-form-field>
 
                 <mat-form-field class="ex-form">
                   <mat-label>Marca:</mat-label>
-                  <input matInput name="qr-marca" placeholder="Eternit" [(ngModel)]="articuloCreado.marca">
+                  <input matInput name="qr-marca" formControlName="marca" placeholder="Eternit">
                 </mat-form-field>
 
                 <mat-form-field class="ex-form">
                   <mat-label>Stock:</mat-label>
-                  <input matInput name="qr-stock" type="number" placeholder="20" [(ngModel)]="articuloCreado.stock">
+                  <input matInput name="qr-stock" formControlName="stock" required type="number" placeholder="20" >
                 </mat-form-field>
 
                 <mat-form-field class="ex-form">
                   <mat-label>Precio:</mat-label>
-                  <input matInput name="qr-precio" type="number" placeholder="120" [(ngModel)]="articuloCreado.precio">
+                  <input matInput name="qr-precio" formControlName="precio" required type="number" placeholder="120" >
                 </mat-form-field>
 
                 <mat-card-actions fxLayoutAlign="center">
-                  <button mat-raised-button color="primary" (click)="registrarDatos()">Registar</button>
+                  <button mat-raised-button color="primary" [disabled]="!registroForm.valid" (click)="registrarDatos()">Registar</button>
                   <button mat-raised-button color="warn" (click)="limpiar()">Limpiar</button>
                   <button mat-raised-button color="primary" (click)="generarQR()">Generar</button>
                 </mat-card-actions>
@@ -43,10 +43,10 @@
           <!-- Para mostrar el código QR del articulo creado -->
           <div fxFlex class="div-qr">
 
-            <mat-card-content *ngIf="qr">
+            <mat-card-content *ngIf="qrGenerado">
               <span fxLayoutAlign="start">Código QR: </span>
               <!-- Se muestra el QR generado, su valor es la URL con el id del producto -->
-              <qrcode name="qrr" fxLayoutAlign="center" [qrdata]="qr" [width]="256"></qrcode>
+              <qrcode name="qrr" fxLayoutAlign="center" [qrdata]="qrGenerado" [width]="256"></qrcode>
               <button mat-raised-button color="primary" (click)="guardarProducto()">Guardar QR</button>
             </mat-card-content>
 

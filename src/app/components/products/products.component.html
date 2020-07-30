@@ -12,8 +12,8 @@
       <mat-card-content>
         <p>Precio: {{ producto.precio | currency:'S/.' }}</p>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button color="primary" (click)="verProducto(producto.id)">Ver Producto</button>
+      <mat-card-actions fxLayoutAlign="end">
+        <button mat-stroked-button color="primary" (click)="verProducto(producto.id)">Ver Producto</button>
       </mat-card-actions>
     </mat-card>
   </div>

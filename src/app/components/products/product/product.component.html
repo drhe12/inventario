@@ -78,8 +78,8 @@
           <mat-card-actions fxLayoutAlign="center" *ngIf="!registrar">
             <button mat-raised-button color="primary" (click)="registrar = 'entrada'">Entrada</button>
             <button mat-raised-button color="primary" (click)="registrar = 'salida'">Salida</button>
-            <!-- <button mat-raised-button color="primary" (click)="exportarExcel()">Exportar Excel</button> -->
-            <button mat-raised-button color="primary" (click)="exporter.exportTable ('xlsx')">Exportar Excel</button>
+            <!-- Para exportar la tabla Kardex a un archivo Excel -->
+            <button mat-raised-button color="accent" (click)="exporter.exportTable('xlsx', {fileName: producto.nombre + '_' + id_producto + '_reporte' })">Exportar a Excel</button>
           </mat-card-actions>
           <form *ngIf="registrar">
             <mat-form-field >
