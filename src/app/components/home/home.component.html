@@ -1,25 +1,39 @@
-<div>
-  <button mat-raised-button color="primary" *ngIf="!scanActivado && !resultadoScan" (click)="iniciarScan()">
-    Iniciar Scan
-  </button>
+<div class="div-princ">
 
-  <video #video [hidden]="!scanActivado" width="50%"></video>
-  <canvas #canvas hidden></canvas>
-  <button mat-raised-button color="accent" (click)="detenerScan()" *ngIf="scanActivado">
-    Detener Scan
-  </button>
-
-  <mat-card *ngIf="resultadoScan">
-    <mat-card-header>
-      <mat-card-title>Resultado QR:</mat-card-title>
-    </mat-card-header>
+  <mat-card>
+    <mat-card-title>Bienvenido a Inventario-QR</mat-card-title>
+    <mat-divider></mat-divider>
+    <p>Comienza a escanear los productos que deseas buscar.</p>
+    <mat-card-actions fxLayoutAlign="center">
+      <button mat-raised-button color="primary" *ngIf="!scanActivado && !resultadoScan" (click)="iniciarScan()">
+        Iniciar Scan
+      </button>
+    </mat-card-actions>
     <mat-card-content>
-      <a [href]="resultadoScan">{{ resultadoScan }}</a>
+        <video #video [hidden]="!scanActivado" width="100%" height="20%"></video>
+        <canvas #canvas hidden></canvas>
     </mat-card-content>
+    <mat-card-actions fxLayoutAlign="center">
+      <button mat-raised-button color="accent" (click)="detenerScan()" *ngIf="scanActivado">
+        Detener Scan
+      </button>
+    </mat-card-actions>
 
-    <button mat-raised-button color="warn" (click)="resetear()" *ngIf="resultadoScan">
-      Resetear Scan
-    </button>
+    <div *ngIf="resultadoScan">
+      <mat-card-header>
+        <mat-card-title>Resultado QR:</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <a [href]="resultadoScan">{{ resultadoScan }}</a>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center">
+        <button mat-raised-button color="warn" (click)="resetear()" *ngIf="resultadoScan">
+          Resetear Scan
+        </button>
+      </mat-card-actions>
+    </div>
+
   </mat-card>
+
 
 </div>

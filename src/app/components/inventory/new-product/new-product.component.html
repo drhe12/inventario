@@ -9,7 +9,7 @@
           <div fxFlex class="div-qr">
             <mat-card-content>
 
-              <form class="example-form" [formGroup]="registroForm">
+              <form class="formulario" [formGroup]="registroForm">
                 <mat-form-field class="ex-form">
                   <mat-label>Nombre del producto:</mat-label>
                   <input matInput name="qr-nombre" formControlName="nombre" required placeholder="Tanque de agua">
@@ -33,7 +33,7 @@
                 <mat-card-actions fxLayoutAlign="center">
                   <button mat-raised-button color="primary" [disabled]="!registroForm.valid" (click)="registrarDatos()">Registar</button>
                   <button mat-raised-button color="warn" (click)="limpiar()">Limpiar</button>
-                  <button mat-raised-button color="primary" (click)="generarQR()">Generar</button>
+                  <button mat-raised-button color="primary" [disabled]="!registroForm.valid" (click)="generarQR()">Generar</button>
                 </mat-card-actions>
               </form>
 

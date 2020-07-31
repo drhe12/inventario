@@ -6,7 +6,6 @@ export class Producto {
   marca: string;
   stock: number;
   precio: number;
-  imagen?: string;
   qr?: string;
   kardex?: Kardex;
 }

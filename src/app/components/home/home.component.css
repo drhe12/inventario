@@ -1,0 +1,16 @@
+/* .video-config {
+  width: 100%;
+  height: 60%;
+}
+
+@media(max-width: 650px) {
+  .video-config {
+    margin: auto;
+    width: 50%;
+    border-radius: 20px;
+  }
+} */
+
+.div-princ {
+  margin: 20px;
+}

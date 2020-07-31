@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutenticacionService } from '../../services/autenticacion.service';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog';
+//import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',

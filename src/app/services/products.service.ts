@@ -71,10 +71,17 @@ export class ProductsService {
       console.log('Error: ' + error);
     });
   }
-
   //Eliminar producto
   eliminarProducto( producto_id: string ) {
     return this.db.collection('productos').doc(producto_id).delete();
+  }
+  //Editar producto
+  editarProducto( producto_id: string ) {
+    return this.db.collection('productos').doc(producto_id).update({ }).then( () => {
+      console.log('Producto editado: ' + producto_id);
+    }).catch( error => {
+      console.log('Error: ' + error);
+    });
   }
 
   //Editar stock producto

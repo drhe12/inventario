@@ -59,6 +59,7 @@ import { NewProductComponent } from './components/inventory/new-product/new-prod
 import { GeneralInventoryComponent } from './components/inventory/general-inventory/general-inventory.component';
 import { ProductComponent } from './components/products/product/product.component';
 import { LoginComponent } from './components/login/login.component';
+import { EditarComponent } from './components/editar/editar.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { LoginComponent } from './components/login/login.component';
     NewProductComponent,
     GeneralInventoryComponent,
     ProductComponent,
-    LoginComponent
+    LoginComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,

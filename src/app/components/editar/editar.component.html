@@ -1,0 +1,44 @@
+
+<mat-card>
+  <mat-card-title>Editar Producto: </mat-card-title>
+  <mat-divider></mat-divider>
+  <div
+
+    class="animated fadeIn">
+    <div fxFlex class="div-editar">
+      <mat-card-content>
+
+        <form class="formulario" [formGroup]="editarProduForm">
+          <mat-form-field class="ex-form">
+            <mat-label>Nombre del producto:</mat-label>
+            <input matInput name="qr-nombre" formControlName="nombre" required placeholder="Tanque de agua">
+          </mat-form-field>
+
+          <mat-form-field class="ex-form">
+            <mat-label>Marca:</mat-label>
+            <input matInput name="qr-marca" formControlName="marca" placeholder="Eternit">
+          </mat-form-field>
+
+          <mat-form-field class="ex-form">
+            <mat-label>Stock:</mat-label>
+            <input matInput name="qr-stock" formControlName="stock" required type="number" placeholder="20" >
+          </mat-form-field>
+
+          <mat-form-field class="ex-form">
+            <mat-label>Precio:</mat-label>
+            <input matInput name="qr-precio" formControlName="precio" required type="number" placeholder="120" >
+          </mat-form-field>
+
+          <mat-card-actions fxLayoutAlign="center">
+            <button mat-raised-button color="primary" [disabled]="!editarProduForm.valid" (click)="editarProducto()">Registar</button>
+            <!-- <button mat-raised-button color="warn" (click)="limpiar()">Limpiar</button>
+            <button mat-raised-button color="primary" [disabled]="!registroForm.valid" (click)="generarQR()">Generar</button> -->
+          </mat-card-actions>
+        </form>
+
+      </mat-card-content>
+    </div>
+
+  </div>
+
+</mat-card>
