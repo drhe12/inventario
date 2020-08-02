@@ -37,7 +37,7 @@
               </ng-container>
               <ng-container matColumnDef="valor_unit">
                 <th mat-header-cell *matHeaderCellDef> VALOR UNIT. </th>
-                <td mat-cell *matCellDef="let regKardex"> {{regKardex.valor_unit}} </td>
+                <td mat-cell *matCellDef="let regKardex"> {{regKardex.valor_unit | currency:'S/.' }} </td>
               </ng-container>
 
               <ng-container matColumnDef="cant_e">

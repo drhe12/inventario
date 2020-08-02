@@ -50,7 +50,7 @@ export class GeneralInventoryComponent implements OnInit, AfterViewInit {
     this.productService.eliminarProducto(id);
   }
 
-  editarProducto( producto: Producto ) {
+  /*editarProducto( producto: Producto ) {
     console.log('Editar: ', producto);
     this.abrirDialog(producto);
   }
@@ -65,6 +65,6 @@ export class GeneralInventoryComponent implements OnInit, AfterViewInit {
     dialogo.afterClosed().subscribe(res => {
       console.log(`Dialogo resultado: ${res}`);
     });
-  }
+  }*/
 
 }
