@@ -33,7 +33,7 @@
                 <mat-card-actions fxLayoutAlign="center">
                   <button mat-raised-button color="primary" [disabled]="!registroForm.valid" (click)="registrarDatos()">Registar</button>
                   <button mat-raised-button color="warn" (click)="limpiar()">Limpiar</button>
-                  <button mat-raised-button color="primary" [disabled]="!registroForm.valid" (click)="generarQR()">Generar</button>
+                  <button mat-raised-button color="primary" [disabled]="!datosRegistrados" (click)="generarQR()">Generar</button>
                 </mat-card-actions>
               </form>
 

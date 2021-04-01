@@ -18,9 +18,9 @@ const APP_ROUTES: Routes = [
   { path: 'inventario', component: InventoryComponent, canActivate: [AutenticacionGuard] },
   { path: 'productos', component: ProductsComponent, canActivate: [AutenticacionGuard] },
   { path: 'productos/:id', component: ProductComponent, canActivate: [AutenticacionGuard] },
-  //{ path: 'reportes', component: ReportsComponent, canActivate: [AutenticacionGuard] },
-  //{ path: 'ayuda', component: HelpComponent, canActivate: [AutenticacionGuard] },
+  // { path: 'reportes', component: ReportsComponent, canActivate: [AutenticacionGuard] },
+  // { path: 'ayuda', component: HelpComponent, canActivate: [AutenticacionGuard] },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
-]
-//useHash para un mejor rendimiento al pasar parametros
+];
+// useHash para un mejor rendimiento al pasar parametros
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, { useHash: true });

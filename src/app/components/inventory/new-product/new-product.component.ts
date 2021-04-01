@@ -21,6 +21,8 @@ export class NewProductComponent implements OnInit {
   id = null;
   qrGenerado = null;
 
+  datosRegistrados = false;
+
   crearFormGroup() {
     return new FormGroup({
       nombre: new FormControl('', [Validators.required]),
@@ -52,14 +54,21 @@ export class NewProductComponent implements OnInit {
       this.marca.value,
       this.stock.value,
       this.precio.value );
+    
+    // Habilitar el botón de GenerarQR luego del proceso de Registro
+    setTimeout(()=>{
+      this.datosRegistrados = true;
+    }, 3000);
   }
 
   limpiar() {
-    this.nombre.setValue('');
-    this.marca.setValue('');
-    this.qr.setValue('');
-    this.stock.setValue('');
-    this.precio.setValue('');
+    this.registroForm.reset();
+
+    // this.nombre.setValue('');
+    // this.marca.setValue('');
+    // this.qr.setValue('');
+    // this.stock.setValue('');
+    // this.precio.setValue('');
 
     this.qrGenerado = null;
     this.id = null;
