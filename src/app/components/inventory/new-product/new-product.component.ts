@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Producto } from 'src/app/clases/producto';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-product',
@@ -34,7 +35,8 @@ export class NewProductComponent implements OnInit {
   }
   registroForm: FormGroup;
 
-  constructor( private productService: ProductsService ) {
+  constructor( private productService: ProductsService,
+               public router: Router ) {
     this.registroForm = this.crearFormGroup();
   }
 
@@ -98,5 +100,17 @@ export class NewProductComponent implements OnInit {
 
     console.log( this.qr.value );
     this.limpiar();
+
+    // this.ngOnInit();
+    // this.router.navigate( ['productos'] );
+    this.router.navigateByUrl('/productos', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['inventario']);
+    });
+
+    setTimeout(()=>{
+      // Dar refresh a la página para que no hayan problemas de repetición
+      window.location.reload();
+    }, 1500);
+
   }
 }
